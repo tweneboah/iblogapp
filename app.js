@@ -16,10 +16,27 @@ mongoose.connect('mongodb://127.0.0.1:27017/iBlogApp-DB', {
   });
 
 //ROUTES
+//HOME
 app.get('/', (req, res) =>{
     res.render('index')
 });
 
+
+//ADD NEW POST
+app.get('/addNewPost', (req, res) => {
+  res.render('addNewPost')
+});
+
+//ALL POSTS
+app.get('/allposts', (req, res) => {
+  res.render('allPosts')
+});
+
+
+//MORE INFO ROUTE
+app.get('/readmore', (req, res) => {
+  res.render('readMore')
+})
 
 let port = process.env.PORT;
 if(port == null || port == ''){
