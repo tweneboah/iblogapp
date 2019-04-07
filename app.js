@@ -6,7 +6,7 @@ const app = express();
 //APP CONFIG
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended:true}))
-
+app.use(express.static('public'));
 //CONNECTING TO DB
 
 mongoose.connect('mongodb://127.0.0.1:27017/iBlogApp-DB', {
