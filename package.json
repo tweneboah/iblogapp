@@ -1,0 +1,29 @@
+{
+  "name": "iblogapp",
+  "version": "1.0.0",
+  "description": "This is a blog app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tweneboah/iBlogApp.git"
+  },
+  "author": "Emmanuel Tweneboah",
+  "license": "ISC",
+  "engines": {
+    "node": "v10.15.1"
+  },
+  "bugs": {
+    "url": "https://github.com/tweneboah/iBlogApp/issues"
+  },
+  "homepage": "https://github.com/tweneboah/iBlogApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22",
+    "nodemon": "^1.18.10"
+  }
+}
