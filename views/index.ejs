@@ -40,13 +40,15 @@
 </nav>
 <!--End of navbar -->
 <body>
+
+
 <!-- Filler Section -->
 <section id="filler" class="py-5 ">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto text-center">
         <h1 id='title'>Pen Your Ideas!!</h1>
-        <p class="lead text-white">Do you have something to share across the world? Your words can save your love you don't know. Yours words has no discrimination. Click to add your words.</p>
+        <p class="lead text-white">Do you have something to share across the world? Your words can save your lover you don't know. Your words has no discrimination. Click to add your words.</p>
         <a href="/addnewpost" class="btn btn-lg btn-primary m-2">Add New Post</a>
       </div>
     </div>
@@ -54,9 +56,7 @@
 </section>
 <!-- End of Filler Section -->
 
-
-
-<!-- Team Section -->
+<!-- POST Section -->
 <section id="team" class="py-5 bg-light">
  <div class="container">
    <!-- Title -->
@@ -70,98 +70,32 @@
       </div>
     </div>
     <!-- End of title -->
+
+
+    
     <div class="row">
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
-          <div class="card">
-             <img src="img/team-6.jpg" class="card-img-top" alt="">
-             <div class="card-body">
-                 <h5 class="card-title text-capitalize">How do I look?</h5>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-                 <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-             </div>
-           
-          </div>
-      </div>
-      <!--End of Team member -->
-
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
+    <%allPosts.forEach((post)=>{%>
+        <!-- POST CONTENT -->
+        <div class="md-6 col-lg-4 my-3">
         <div class="card">
-          <img src="img/team-5.jpg" class="card-img-top" alt="">
+        
+          <img src="<%=post.image%>" class="card-img-top" alt="">
           <div class="card-body">
-            <h5 class="card-title text-capitalize">One day</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-          </div>
-          
-        </div>
-      </div>
-      <!--End of Team member -->
 
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
-        <div class="card">
-          <img src="img/team-4.jpg" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title text-capitalize">How to win</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-          </div>
-
-        </div>
-      </div>
-      <!--End of Team member -->
-
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
-        <div class="card">
-          <img src="img/team-3.jpg" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title text-capitalize">Awesome things happen to bad peoples</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-          </div>
-          
-        </div>
-      </div>
-      <!--End of Team member -->
-
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
-        <div class="card">
-          <img src="img/team-2.jpg" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title text-capitalize">Is to dry</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-          </div>
-          
-        </div>
-      </div>
-      <!--End of Team member -->
-
-      <!-- Team member -->
-      <div class="md-6 col-lg-4 my-3">
-        <div class="card">
-          <img src="img/team-1.jpg" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title text-capitalize">I think so</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus numquam iusto, neque </p>
-            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
-          </div>
          
+            <h5 class="card-title text-capitalize"><%=post.title%></h5>
+            <p><%=post.description%> </p>
+            <a href="" class="btn btn-outline-danger text-uppercase">Read more</a>
+          </div> 
         </div>
       </div>
-      <!--End of Team member -->
+      <%})%>
+      <!--End of POST CONTENT -->
+
     </div>
  </div>
 </section>
-<!--End of Team Section -->
-
-
-
-
+<!--End of POST Section -->
            <div class="card-footer">
             <a href="" title="" class="btn btn-block btn-outline-danger text-capitalize">Contact the developer</a>
            </div>
@@ -172,7 +106,7 @@
     
   </div>
 </section>
-
+<%=allPosts%>
 
 <!-- Footer Section -->
 <footer id="footer" class="bg-dark py-5">
@@ -180,9 +114,9 @@
      <!-- Title -->
     <div class="row">
       <div class="col text-center">
-        <h1 class="display-4 text-dark mb-0">
+        <h2 class="display-4 text-dark mb-0">
            <strong class="text-white">GET IN TOUCH</strong>
-        </h1>
+        </h2>
         <div class="text-underline bg-danger text-center mb-3"></div>
         <p class="text-white">You can hire me for your projects. Follow me on</p>
       </div>

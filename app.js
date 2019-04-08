@@ -32,19 +32,13 @@ const newPost = new Post({
   content: 'Am really good for this'
 })
 
-// newPost.save((error, post)=> {
-//   if(error){
-//     console.log(error)
-//   }else {
-//     console.log(post)
-//   }
-// })
+
 
 
 //ROUTES
 //HOME
 app.get('/', (req, res) =>{
-    res.render('index')
+    res.redirect('/home')
 });
 
 
@@ -55,7 +49,7 @@ app.get('/addnewpost', (req, res) => {
 });
 
 //PROCESSING THE FORM
-app.post('/blogs', (req, res) => {
+app.post('/addnewpost', (req, res) => {
 
   Post.create(req.body.blog, (error, createdPost) => {
     if(error){
@@ -68,13 +62,13 @@ app.post('/blogs', (req, res) => {
 })
 
 // GETTING ALL POSTS
-app.get('/allposts', (req, res) => {
+app.get('/home', (req, res) => {
   Post.find({}, (error, allPosts) => {
     if(error){
       console.log(error)
     }else{
       res.render('index', {allPosts: allPosts})
-      console.log(allPosts)
+      
     }
   })
 });
@@ -85,11 +79,11 @@ app.get('/readmore', (req, res) => {
   res.render('readMore')
 })
 
-let port = process.env.PORT;
-if(port == null || port == ''){
-  port = 3000
-};
-app.listen(port)
+// let port = process.env.PORT;
+// if(port == null || port == ''){
+//   port = 3000
+// };
+// app.listen(port)
 
 app.listen(3000, (req, res) => {
     console.log('The server is runing on port 3000')
