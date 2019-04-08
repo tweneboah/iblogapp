@@ -32,13 +32,13 @@ const newPost = new Post({
   content: 'Am really good for this'
 })
 
-newPost.save((error, post)=> {
-  if(error){
-    console.log(error)
-  }else {
-    console.log(post)
-  }
-})
+// newPost.save((error, post)=> {
+//   if(error){
+//     console.log(error)
+//   }else {
+//     console.log(post)
+//   }
+// })
 
 
 //ROUTES
@@ -68,11 +68,11 @@ app.get('/readmore', (req, res) => {
   res.render('readMore')
 })
 
-// let port = process.env.PORT;
-// if(port == null || port == ''){
-//   port = 3000
-// };
-// app.listen(port)
+let port = process.env.PORT;
+if(port == null || port == ''){
+  port = 3000
+};
+app.listen(port)
 
 app.listen(3000, (req, res) => {
     console.log('The server is runing on port 3000')
