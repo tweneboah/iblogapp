@@ -9,11 +9,22 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('public'));
 //CONNECTING TO DB
 
-mongoose.connect('mongodb://127.0.0.1:27017/iBlogApp-DB', {
+//LOCAL CONNECTION
+
+// mongoose.connect('mongodb://127.0.0.1:27017/iBlogApp-DB', {
+//     useNewUrlParser: true, 
+//     useCreateIndex: true,//help us to quickly access our database
+//     useFindAndModify: false
+//   });
+
+
+//DEPLOYED CODE TO ATLASS
+  mongoose.connect('mongodb+srv://emmanuel:Paaputwu$2016@iblogapp-g06za.mongodb.net/iBlogApp-DB', {
     useNewUrlParser: true, 
     useCreateIndex: true,//help us to quickly access our database
     useFindAndModify: false
   });
+
 
 //POST SCGEMA
 const postSchema = mongoose.Schema({
