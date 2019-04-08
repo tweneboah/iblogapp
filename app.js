@@ -19,7 +19,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/iBlogApp-DB', {
 const postSchema = mongoose.Schema({
   title: String,
   image: String,
-  content: String
+  description: String
 });
 
 //POST MODEL
@@ -49,17 +49,34 @@ app.get('/', (req, res) =>{
 
 
 //ADD NEW POST
-app.get('/addNewPost', (req, res) => {
+//GETTING THE FORM
+app.get('/addnewpost', (req, res) => {
   res.render('addNewPost')
 });
 
-app.post('/addnewpost', (req, res) => {
+//PROCESSING THE FORM
+app.post('/blogs', (req, res) => {
 
+  Post.create(req.body.blog, (error, createdPost) => {
+    if(error){
+      console.log(error)
+    }else {
+      console.log(createdPost)
+      res.redirect('/')
+    }
+  })
 })
 
-//ALL POSTS
+// GETTING ALL POSTS
 app.get('/allposts', (req, res) => {
-  res.render('allPosts')
+  Post.find({}, (error, allPosts) => {
+    if(error){
+      console.log(error)
+    }else{
+      res.render('index', {allPosts: allPosts})
+      console.log(allPosts)
+    }
+  })
 });
 
 

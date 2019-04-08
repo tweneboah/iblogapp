@@ -1,0 +1,87 @@
+body{
+ font-family: 'Roboto', sans-serif;
+
+}
+
+.height {
+   min-height: 100vh;
+   align-items: center;
+}
+
+.text-underline {
+color: tomato;
+height: 10px;
+width: 200px;
+margin: 0 auto;
+}
+
+.img-height {
+   min-height: 80vh;
+   align-items: center;
+}
+
+.text-height {
+   min-height: 80vh;
+   align-items: center;
+}
+
+.about-picture {
+   background: url(../img/car3.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   
+}
+
+#filler, #progress {
+   
+    /* background-size: cover;
+     background-repeat: no-repeat;
+      background-attachment: fixed; */
+      background: #006266;
+      
+
+}
+
+.navbar-menu {
+   background: #4c0045;
+}
+
+#brand-text {
+  font-size: 2em;
+}
+
+
+#text-1 {
+   color: #9980FA;
+   font-size: 1.2em;
+   
+}
+
+#text-2 {
+   color:#ED4C67;
+   font-size: 1.2em;
+  
+}
+
+#text-3 {
+   color: #F79F1F;
+   font-size: 1.2em;
+   
+}
+
+#text-4 {
+   color: #C4E538;
+   font-size: 1.2em;
+   
+}
+
+#title {
+   font-size: 3em;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: #F79F1F;
+}
+
+
+
