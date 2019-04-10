@@ -86,15 +86,23 @@ app.get('/home', (req, res) => {
 
 
 //MORE INFO ROUTE
-app.get('/readmore', (req, res) => {
-  res.render('readMore')
-})
 
-let port = process.env.PORT;
-if(port == null || port == ''){
-  port = 3000
-};
-app.listen(port)
+app.get('/post/:id', (req, res) => {
+  Post.findById(req.params.id, (error, foundBlog) => {
+    if(error){
+      res.redirect('/blogs')
+    }else{
+      res.render('readMore', {post:foundBlog})
+    }
+  })
+});
+
+
+// let port = process.env.PORT;
+// if(port == null || port == ''){
+//   port = 3000
+// };
+// app.listen(port)
 
 app.listen(3000, (req, res) => {
     console.log('The server is runing on port 3000')
