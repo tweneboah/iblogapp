@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser =require('body-parser');
+const methodOverride = require('method-override');
 
 const app = express();
 //APP CONFIG
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 //CONNECTING TO DB
 
 //LOCAL CONNECTION
@@ -97,13 +99,48 @@ app.get('/post/:id', (req, res) => {
   })
 });
 
+//GETTING EDIT FORM
+app.get('/post/:id/edit', (req, res) => {
+  Post.findById(req.params.id, (error, foundPost)=>{
+    if(error){
+      res.redirect('/')
+    }else {
+      res.render('edit', {post:foundPost})
+    }
+  })
+});
 
-let port = process.env.PORT;
-if(port == null || port == ''){
-  port = 3000
-};
-app.listen(port)
+
+
+//UPDATE ROUT
+app.put('/post/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, req.body.blog, (error, updatePost)=> {
+    if(error) {
+      res.redirect('/addNewPost')
+    }else{
+      res.redirect('/post/' + req.params.id)
+    }
+  })
+});
+
+
+//DELETE ROUTE
+app.delete('/post/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id, (error) => {
+    if(error){
+      console.log(error)
+    }else{
+      res.redirect('/')
+    }
+  })
+});
+
+// let port = process.env.PORT;
+// if(port == null || port == ''){
+//   port = 3000
+// };
+// app.listen(port)
 
 app.listen(3000, (req, res) => {
-    console.log('The server is runing on port 3000')
+    console.log('Runing IblogApp on port 3000')
 })

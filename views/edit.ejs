@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>IBlog</title>
   <!-- bootstrap css -->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <!-- font-awesome -->
   <script src="/js/all.js"></script>
   <script src="fonts/all.js"></script>
   <!--google fonts  -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,800,900|Roboto:400,500,700,900" rel="stylesheet">
+
+
   <!-- main css -->
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <!-- navbar -->
-<nav class="navbar py3 navbar-dark navbar-expand-sm  navbar-menu" id='nav-text'>
+<nav class="navbar py3 navbar-dark navbar-expand-sm  navbar-menu">
   <!-- lOGO Either image/text -->
   <a href="/" class="navbar-brand text-uppercase font-weight-bold" id='brand-text' >iBlog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks">
@@ -40,56 +45,28 @@
 </nav>
 <!--End of navbar -->
 <body>
-
-
-
-<!-- POST Section -->
-<section id="team" class="py-5 bg-light">
- <div class="container">
-   <!-- Title -->
-
-    <!-- End of title -->
-
-
-    
-    <div class="row">
-    
-        <!-- POST CONTENT -->
-        <div class=" lg-4 my-3">
-        <div class="card">
-        
-          <img src="<%=post.image%>" class="card-img-top" alt="">
-          <div class="card-body">
-
-         
-            <h5 class="card-title text-capitalize"><%=post.title%></h5>
-            <p><%=post.description%> </p>
-           
- 
-
-
-             <form action='/post/<%=post._id%>?_method=DELETE' method='POST'>
-                <button class='btn btn-danger' >Delete</button>
-
-                <a href='/post/<%=post._id%>/edit' class='btn btn-primary ml-3'>Edit</a>
-                 
-           </form>
-
-             <%# <a href="" class="btn btn-outline-danger text-uppercase">Edit</a> %>
-
-            
-            
-            
-          </div> 
-        </div>
-      </div>
-      
-      <!--End of POST CONTENT -->
-
+<div class="ui main text container segment">
+<div class="ui huge header"> Editing <%=post.title%>...   </div>
+  <form action="/post/<%=post._id%>?_method=PUT" method="POST" class="ui form">
+    <div class="field">
+        <label> Title: </label>
+        <input type="text" name="blog[title]" placeholder="title" value='<%=post.title%>'
     </div>
- </div>
-</section>
-<!--End of POST Section -->
+
+    <div class="field">
+            <label> Image: </label>
+            <input type="text" name="blog[image]" placeholder="image" value='<%=post.image%>'
+     </div>
+
+     <div class="field">
+            <label> Description: </label>
+            <textarea name="blog[description]"><%=post.description%></textarea>
+     </div>
+     <input type="submit" class="ui violet basic button">
+  </form>
+</div>
+
+
            <div class="card-footer">
             <a href="" title="" class="btn btn-block btn-outline-danger text-capitalize">Contact the developer</a>
            </div>
@@ -101,15 +78,16 @@
   </div>
 </section>
 
+
 <!-- Footer Section -->
 <footer id="footer" class="bg-dark py-5">
   <div class="container">
      <!-- Title -->
     <div class="row">
       <div class="col text-center">
-        <h2 class="display-4 text-dark mb-0">
+        <h1 class="display-4 text-dark mb-0">
            <strong class="text-white">GET IN TOUCH</strong>
-        </h2>
+        </h1>
         <div class="text-underline bg-danger text-center mb-3"></div>
         <p class="text-white">You can hire me for your projects. Follow me on</p>
       </div>
