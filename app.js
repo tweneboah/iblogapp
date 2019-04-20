@@ -135,6 +135,20 @@ app.delete('/post/:id', (req, res) => {
   })
 });
 
+//===========
+//REGISTERING FORM
+//===========
+app.get('/register', (req, res) => {
+  res.render('registerForm')
+})
+
+//===========
+//REGISTERING FORM
+//===========
+app.get('/login', (req, res) => {
+  res.render('login')
+})
+
 let port = process.env.PORT;
 if(port == null || port == ''){
   port = 3000
